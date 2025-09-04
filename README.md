@@ -1,46 +1,72 @@
-# Getting Started with Create React App
+# 📰 Headline Widget
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A **professional React + TypeScript Headline Widget** built for showcasing advanced frontend development skills.  
+This project demonstrates **clean architecture, modern UI/UX practices, and production-ready code** — suitable for job assessments and real-world use.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Live Demo
 
-### `npm start`
+🔗 [View Live Project](https://your-vercel-deployment-url.vercel.app)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## ✨ Features
 
-### `npm test`
+### 🔹 Core Functionality
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Editable headline text** with real-time preview
+- **Typography controls**: font size, family, weight, alignment, letter spacing, line height
+- **Gradient toggle** with direction controls (→, ←, ↓, ↑, ↘, ↙) and multiple color pickers
+- **Collapsible sections** for an intuitive, professional UI
 
-### `npm run build`
+### 🔹 Extra Capabilities
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Word/segment styling**: highlight, underline, background, bold, italic with custom colors
+- **Advanced animations**: fade-in, slide-up, bounce, glow, shimmer, typewriter effect
+- **Text effects**: shadow, outline, custom positioning
+- **Export options**: JSON settings, CSS styles, HTML snippet, or React component
+- **Dark/Light mode** with system preference detection
+- **Responsive design** that adapts to all devices
+- **Persistence** with localStorage (save/load headline configurations)
+- **Live statistics** for character/word count
+- **Framer Motion animations** across the UI for a polished feel
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 🔹 Technical Highlights
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- ✅ **TypeScript** with strict type safety
+- ✅ **React 18 + Hooks + Custom Hooks**
+- ✅ **Tailwind CSS 3** with custom animations
+- ✅ **Framer Motion** for smooth animations
+- ✅ **Accessibility-ready** (ARIA labels, keyboard navigation)
+- ✅ **Performance optimized** with clean state management
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## 🛠️ Tech Stack
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **React 18** + **TypeScript**
+- **Tailwind CSS 3**
+- **Framer Motion**
+- **LocalStorage API**
+- **Vite** for fast development
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+---
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 📦 Installation & Setup
 
-## Learn More
+Clone the repo and install dependencies:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+# Clone this repository
+git clone https://github.com/anishazahan/heading-widjet
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Navigate into the project
+cd headline-widget
+
+# Install dependencies
+yarn install   # or npm install
+
+# Start development server
+yarn dev       # or npm run dev
+```
