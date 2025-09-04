@@ -9,38 +9,7 @@ import { ControlPanel } from "./components/ControlPanel";
 import { ExportModal } from "./components/ExportModal";
 import { useTheme } from "./hooks/useTheme";
 import { useLocalStorage } from "./hooks/useLocalStorage";
-
-const DEFAULT_SETTINGS: HeadlineSettings = {
-  text: "Create Amazing Headlines",
-  fontSize: 48,
-  fontFamily: "Inter",
-  fontWeight: 700,
-  textAlign: "center",
-  color: "#1f2937",
-  backgroundColor: "transparent",
-  padding: 20,
-  margin: 10,
-  letterSpacing: 0,
-  lineHeight: 1.2,
-
-  gradientEnabled: false,
-  gradientDirection: "to-r",
-  gradientColors: ["#3b82f6", "#8b5cf6"],
-
-  textShadow: false,
-  textOutline: false,
-  outlineColor: "#000000",
-  shadowColor: "#000000",
-  shadowBlur: 4,
-  shadowOffsetX: 2,
-  shadowOffsetY: 2,
-
-  animationType: "fade-in",
-  animationDuration: 0.8,
-  animationDelay: 0,
-
-  highlightedWords: [],
-};
+import { DEFAULT_SETTINGS } from "./lib/common.data";
 
 function App() {
   const { theme, toggleTheme } = useTheme();
@@ -83,22 +52,22 @@ function App() {
       {/* Header */}
       <header className="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-between h-20 ">
             <div className="flex items-center space-x-3">
               <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-sm">H</span>
               </div>
               <div>
-                <h1 className="text-xl font-bold text-gray-900 dark:text-gray-100">
+                <h1 className="text-base sm:text-xl font-bold text-gray-900 dark:text-gray-100">
                   Headline Widget
                 </h1>
-                <p className="text-sm text-gray-500 dark:text-gray-400">
+                <p className="text-sm text-gray-500 dark:text-gray-400 hidden sm:block">
                   Professional Typography Tool
                 </p>
               </div>
             </div>
 
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center space-x-2 sm:space-x-3">
               <button
                 onClick={() => setShowSavedList(!showSavedList)}
                 className="p-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"

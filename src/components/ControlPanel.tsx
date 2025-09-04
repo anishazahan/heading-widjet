@@ -18,67 +18,20 @@ import type { HeadlineSettings } from "../types";
 import { ColorPicker } from "./ColorPicker";
 import { RangeSlider } from "./RangeSlider";
 import { Select } from "./Select";
+import {
+  ANIMATION_TYPES,
+  FONT_FAMILIES,
+  FONT_WEIGHTS,
+  GRADIENT_DIRECTIONS,
+  HIGHLIGHT_STYLES,
+  TEXT_ALIGN_OPTIONS,
+} from "../lib/common.data";
 
 interface ControlPanelProps {
   settings: HeadlineSettings;
   onSettingsChange: (settings: Partial<HeadlineSettings>) => void;
   onExport: () => void;
 }
-
-const FONT_FAMILIES = [
-  { value: "Inter", label: "Inter" },
-  { value: "Poppins", label: "Poppins" },
-  { value: "Roboto", label: "Roboto" },
-  { value: "Montserrat", label: "Montserrat" },
-  { value: "Playfair Display", label: "Playfair Display" },
-  { value: "Merriweather", label: "Merriweather" },
-  { value: "Source Code Pro", label: "Source Code Pro" },
-];
-
-const FONT_WEIGHTS = [
-  { value: "100", label: "Thin (100)" },
-  { value: "200", label: "Extra Light (200)" },
-  { value: "300", label: "Light (300)" },
-  { value: "400", label: "Regular (400)" },
-  { value: "500", label: "Medium (500)" },
-  { value: "600", label: "Semi Bold (600)" },
-  { value: "700", label: "Bold (700)" },
-  { value: "800", label: "Extra Bold (800)" },
-  { value: "900", label: "Black (900)" },
-];
-
-const TEXT_ALIGN_OPTIONS = [
-  { value: "left", label: "Left" },
-  { value: "center", label: "Center" },
-  { value: "right", label: "Right" },
-];
-
-const GRADIENT_DIRECTIONS = [
-  { value: "to-r", label: "Right →" },
-  { value: "to-l", label: "Left ←" },
-  { value: "to-b", label: "Down ↓" },
-  { value: "to-t", label: "Up ↑" },
-  { value: "to-br", label: "Bottom Right ↘" },
-  { value: "to-bl", label: "Bottom Left ↙" },
-];
-
-const ANIMATION_TYPES = [
-  { value: "none", label: "None" },
-  { value: "fade-in", label: "Fade In" },
-  { value: "slide-up", label: "Slide Up" },
-  { value: "bounce", label: "Bounce" },
-  { value: "glow", label: "Glow" },
-  { value: "shimmer", label: "Shimmer" },
-  { value: "typewriter", label: "Typewriter" },
-];
-
-const HIGHLIGHT_STYLES = [
-  { value: "highlight", label: "Highlight" },
-  { value: "underline", label: "Underline" },
-  { value: "background", label: "Background" },
-  { value: "bold", label: "Bold" },
-  { value: "italic", label: "Italic" },
-];
 
 export const ControlPanel: React.FC<ControlPanelProps> = ({
   settings,

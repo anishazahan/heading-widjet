@@ -2,6 +2,7 @@
 
 import type React from "react";
 import { motion } from "framer-motion";
+import { PRESET_COLORS } from "../lib/common.data";
 
 interface ColorPickerProps {
   label: string;
@@ -9,21 +10,6 @@ interface ColorPickerProps {
   onChange: (color: string) => void;
   className?: string;
 }
-
-const PRESET_COLORS = [
-  "#000000",
-  "#ffffff",
-  "#ef4444",
-  "#f97316",
-  "#eab308",
-  "#22c55e",
-  "#06b6d4",
-  "#3b82f6",
-  "#8b5cf6",
-  "#ec4899",
-  "#6b7280",
-  "#1f2937",
-];
 
 export const ColorPicker: React.FC<ColorPickerProps> = ({
   label,
