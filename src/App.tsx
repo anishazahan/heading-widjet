@@ -69,6 +69,41 @@ function App() {
           </div>
         </div>
       </header>
+      {showSavedList && (
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="absolute top-16 right-4 z-40 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 min-w-64 max-h-64 overflow-y-auto"
+        >
+          <div className="p-3 border-b border-gray-200 dark:border-gray-700">
+            <h3 className="font-medium text-gray-900 dark:text-gray-100">
+              Saved Headlines
+            </h3>
+          </div>
+          {savedSettings.length === 0 ? (
+            <div className="p-4 text-center text-gray-500 dark:text-gray-400">
+              No saved headlines yet
+            </div>
+          ) : (
+            <div className="py-2">
+              {savedSettings.map((saved, index) => (
+                <button
+                  key={index}
+                  onClick={() => loadSavedSettings(saved)}
+                  className="w-full px-4 py-2 text-left hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                >
+                  <div className="font-medium text-gray-900 dark:text-gray-100 truncate">
+                    {saved.text.slice(0, 30)}...
+                  </div>
+                  <div className="text-sm text-gray-500 dark:text-gray-400">
+                    {saved.fontFamily} • {saved.fontSize}px
+                  </div>
+                </button>
+              ))}
+            </div>
+          )}
+        </motion.div>
+      )}
     </div>
   );
 }
