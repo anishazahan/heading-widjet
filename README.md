@@ -7,7 +7,7 @@ This project demonstrates **clean architecture, modern UI/UX practices, and prod
 
 ## 🚀 Live Demo
 
-🔗 [View Live Project](https://your-vercel-deployment-url.vercel.app)
+🔗 [View Live Project](https://heading-widget-anisha.netlify.app/)
 
 ---
 

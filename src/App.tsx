@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Sun, Moon, RotateCcw, Save, Folder } from "lucide-react";
