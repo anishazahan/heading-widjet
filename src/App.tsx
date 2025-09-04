@@ -104,6 +104,78 @@ function App() {
           )}
         </motion.div>
       )}
+
+      {/* Main Content */}
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Preview Area */}
+          <div className="lg:col-span-2">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <HeadlinePreview settings={settings} />
+            </motion.div>
+
+            {/* Quick Stats */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4"
+            >
+              <div className="bg-white dark:bg-gray-800 rounded-lg p-4 text-center border border-gray-200 dark:border-gray-700">
+                <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">
+                  {settings.text.length}
+                </div>
+                <div className="text-sm text-gray-500 dark:text-gray-400">
+                  Characters
+                </div>
+              </div>
+              <div className="bg-white dark:bg-gray-800 rounded-lg p-4 text-center border border-gray-200 dark:border-gray-700">
+                <div className="text-2xl font-bold text-green-600 dark:text-green-400">
+                  {settings.text.split(" ").length}
+                </div>
+                <div className="text-sm text-gray-500 dark:text-gray-400">
+                  Words
+                </div>
+              </div>
+              <div className="bg-white dark:bg-gray-800 rounded-lg p-4 text-center border border-gray-200 dark:border-gray-700">
+                <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">
+                  {settings.fontSize}px
+                </div>
+                <div className="text-sm text-gray-500 dark:text-gray-400">
+                  Font Size
+                </div>
+              </div>
+              <div className="bg-white dark:bg-gray-800 rounded-lg p-4 text-center border border-gray-200 dark:border-gray-700">
+                <div className="text-2xl font-bold text-orange-600 dark:text-orange-400">
+                  {settings.highlightedWords.length}
+                </div>
+                <div className="text-sm text-gray-500 dark:text-gray-400">
+                  Highlights
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Control Panel */}
+          <div className="lg:col-span-1">
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <ControlPanel
+                settings={settings}
+                onSettingsChange={handleSettingsChange}
+                onExport={() => setIsExportModalOpen(true)}
+              />
+            </motion.div>
+          </div>
+        </div>
+      </main>
     </div>
   );
 }
