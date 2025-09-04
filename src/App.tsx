@@ -4,10 +4,79 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Sun, Moon, RotateCcw, Save, Folder } from "lucide-react";
 import type { HeadlineSettings } from "./types";
+import { HeadlinePreview } from "./components/HeadlinePreview";
+import { ControlPanel } from "./components/ControlPanel";
+import { ExportModal } from "./components/ExportModal";
 import { useTheme } from "./hooks/useTheme";
+import { useLocalStorage } from "./hooks/useLocalStorage";
+
+const DEFAULT_SETTINGS: HeadlineSettings = {
+  text: "Create Amazing Headlines",
+  fontSize: 48,
+  fontFamily: "Inter",
+  fontWeight: 700,
+  textAlign: "center",
+  color: "#1f2937",
+  backgroundColor: "transparent",
+  padding: 20,
+  margin: 10,
+  letterSpacing: 0,
+  lineHeight: 1.2,
+
+  gradientEnabled: false,
+  gradientDirection: "to-r",
+  gradientColors: ["#3b82f6", "#8b5cf6"],
+
+  textShadow: false,
+  textOutline: false,
+  outlineColor: "#000000",
+  shadowColor: "#000000",
+  shadowBlur: 4,
+  shadowOffsetX: 2,
+  shadowOffsetY: 2,
+
+  animationType: "fade-in",
+  animationDuration: 0.8,
+  animationDelay: 0,
+
+  highlightedWords: [],
+};
 
 function App() {
   const { theme, toggleTheme } = useTheme();
+  const [settings, setSettings] = useLocalStorage<HeadlineSettings>(
+    "headline-settings",
+    DEFAULT_SETTINGS
+  );
+  const [savedSettings, setSavedSettings] = useLocalStorage<HeadlineSettings[]>(
+    "saved-headlines",
+    []
+  );
+  const [isExportModalOpen, setIsExportModalOpen] = useState(false);
+  const [showSavedList, setShowSavedList] = useState(false);
+
+  const handleSettingsChange = (newSettings: Partial<HeadlineSettings>) => {
+    setSettings((prev) => ({ ...prev, ...newSettings }));
+  };
+
+  const resetSettings = () => {
+    setSettings(DEFAULT_SETTINGS);
+  };
+
+  const saveCurrentSettings = () => {
+    const timestamp = new Date().toISOString();
+    const savedSetting = {
+      ...settings,
+      id: timestamp,
+      name: `Headline ${savedSettings.length + 1}`,
+    };
+    setSavedSettings((prev) => [...prev, savedSetting]);
+  };
+
+  const loadSavedSettings = (savedSetting: HeadlineSettings) => {
+    setSettings(savedSetting);
+    setShowSavedList(false);
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
@@ -31,7 +100,7 @@ function App() {
 
             <div className="flex items-center space-x-3">
               <button
-                // onClick={() => setShowSavedList(!showSavedList)}
+                onClick={() => setShowSavedList(!showSavedList)}
                 className="p-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
                 title="Saved Headlines"
               >
@@ -39,7 +108,7 @@ function App() {
               </button>
 
               <button
-                // onClick={saveCurrentSettings}
+                onClick={saveCurrentSettings}
                 className="p-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
                 title="Save Current Settings"
               >
@@ -47,7 +116,7 @@ function App() {
               </button>
 
               <button
-                // onClick={resetSettings}
+                onClick={resetSettings}
                 className="p-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
                 title="Reset to Default"
               >
@@ -69,6 +138,8 @@ function App() {
           </div>
         </div>
       </header>
+
+      {/* Saved Settings Dropdown */}
       {showSavedList && (
         <motion.div
           initial={{ opacity: 0, y: -10 }}
@@ -176,6 +247,23 @@ function App() {
           </div>
         </div>
       </main>
+
+      {/* Export Modal */}
+      <ExportModal
+        isOpen={isExportModalOpen}
+        onClose={() => setIsExportModalOpen(false)}
+        settings={settings}
+      />
+
+      {/* Footer */}
+      <footer className="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="text-center text-gray-500 dark:text-gray-400">
+            <p>Built with React, TypeScript, Tailwind CSS, and Framer Motion</p>
+            <p className="mt-1">Professional Headline Widget • Anisha Zahan</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
