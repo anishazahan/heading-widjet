@@ -4,6 +4,7 @@ A **professional React + TypeScript Headline Widget** built for showcasing advan
 This project demonstrates **clean architecture, modern UI/UX practices, and production-ready code** — suitable for job assessments and real-world use.
 
 ---
+test
 
 ## 🚀 Live Demo
 
